@@ -10,7 +10,7 @@ class StatisticController extends BaseController
 {
     public function stats()
     {
-        $stats = Cache::remember('stats', now()->addMinutes(10), function () {
+        $stats = Cache::remember('stats', function () {
             $stats = [
                 'users_total' => User::count(),
                 'posts_total' => Post::count(),
